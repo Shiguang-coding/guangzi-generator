@@ -20,14 +20,14 @@ public class StaticGenerator {
 
 
         // 输入路径,获取相对路径,不同操作系统可能有所不同
-        // D:\Workspace\shiguang-coding\yuzi-generator\yuzi-generator-demo-projects\acm-template
+        // D:\Workspace\shiguang-coding\guangzi-generator\guangzi-generator-demo-projects\acm-template
         // File parentFile = new File(projectPath).getParentFile();
-        // String inputPath = new File(parentFile, "yuzi-generator-demo-projects" + File.separator + "acm-template").getAbsolutePath();
+        // String inputPath = new File(parentFile, "guangzi-generator-demo-projects" + File.separator + "acm-template").getAbsolutePath();
 
-        String inputPath = projectPath + File.separator + "yuzi-generator-demo-projects" + File.separator + "acm-template";
+        String inputPath = projectPath + File.separator + "guangzi-generator-demo-projects" + File.separator + "acm-template";
 
         // 输出路径
-        String outputPath = projectPath;
+        String outputPath = projectPath + File.separator + "guangzi-generator-basic" + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "outputdir";
 
         System.out.println("输入路径: " + inputPath);
         System.out.println("输出路径: " + outputPath);
@@ -59,8 +59,9 @@ public class StaticGenerator {
         File outputFile = new File(outputPath);
         try {
             copyFileByRecursive(inputFile, outputFile);
+            System.err.println("文件复制成功!!");
         } catch (Exception e) {
-            System.err.println("文件复制失败");
+            System.err.println("文件复制失败!!");
             e.printStackTrace();
         }
     }
@@ -79,7 +80,7 @@ public class StaticGenerator {
     private static void copyFileByRecursive(File inputFile, File outputFile) throws IOException {
         // 区分是文件还是目录
         if (inputFile.isDirectory()) {
-            System.out.println(inputFile.getName());
+//            System.out.println(inputFile.getName());
             File destOutputFile = new File(outputFile, inputFile.getName());
             // 如果是目录，首先创建目标目录
             if (!destOutputFile.exists()) {

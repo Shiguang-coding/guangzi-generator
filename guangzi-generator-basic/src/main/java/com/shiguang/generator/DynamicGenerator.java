@@ -17,10 +17,18 @@ import java.io.Writer;
  */
 public class DynamicGenerator {
     public static void main(String[] args) throws IOException, TemplateException {
-        String projectPath = System.getProperty("user.dir") + File.separator + "yuzi-generator-basic";
-//        String inputPath = projectPath + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "templates" + File.separator + "MainTemplateConfig.java.ftl";
+        String projectPath = System.getProperty("user.dir") + File.separator + "guangzi-generator-basic";
+        // System.getProperty("user.dir") 不同的操作系统取到的结果可能有差异,如果不是预期的目录,需要手动拼接路径
+        // String inputPath = projectPath + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "templates" + File.separator + "MainTemplateConfig.java.ftl";
         String inputPath = projectPath + File.separator + "src/main/resources/templates/MainTemplateConfig.java.ftl";
-        String outputPath = projectPath + File.separator + "MainTemplateConfig.java";
+
+        File outputDir = new File(projectPath + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "outputdir");
+
+        if (!outputDir.exists()){
+            outputDir.mkdirs();
+        }
+
+        String outputPath = outputDir + File.separator + "MainTemplateConfig.java";
 
         System.out.println("projectPath: " + projectPath);
         System.out.println("inputPath: " + inputPath);

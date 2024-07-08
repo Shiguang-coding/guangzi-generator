@@ -1,7 +1,9 @@
 ### Custom template
 .idea
-yuzi-generator.iml
-yuzi-generator-demo-projects/acm-template/acm-template.iml
+guangzi-generator.iml
+guangzi-generator-demo-projects/acm-template/acm-template.iml
+
+*.iml
 
 
 

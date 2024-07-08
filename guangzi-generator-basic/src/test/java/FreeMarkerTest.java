@@ -59,7 +59,18 @@ public class FreeMarkerTest {
         menuItems.add(menuItem3);
         dataModel.put("menuItems", menuItems);
 
-        Writer out = new FileWriter("myweb.html");
+
+        File outputDir = new File("src/main/resources/outputdir");
+
+        if (!outputDir.exists()){
+            outputDir.mkdirs();
+        }
+
+        String outputFile = outputDir + File.separator + "myweb.html";
+
+        System.out.println("输出文件："+outputFile);
+
+        Writer out = new FileWriter(outputFile);
 
         template.process(dataModel, out);
 

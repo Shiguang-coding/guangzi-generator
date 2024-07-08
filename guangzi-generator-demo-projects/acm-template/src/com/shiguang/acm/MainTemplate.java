@@ -1,4 +1,4 @@
-package com.yupi.acm;
+package com.shiguang.acm;
 
 import java.util.Scanner;
 
@@ -7,6 +7,7 @@ import java.util.Scanner;
  */
 public class MainTemplate {
     public static void main(String[] args) {
+        System.out.println("请输入元素个数：");
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()) {
@@ -16,6 +17,7 @@ public class MainTemplate {
             // 读取数组
             int[] arr = new int[n];
             for (int i = 0; i < n; i++) {
+                System.out.println("请输入第"+(i+1)+"个元素：");
                 arr[i] = scanner.nextInt();
             }
 
@@ -26,7 +28,7 @@ public class MainTemplate {
                 sum += num;
             }
 
-            System.out.println("Sum: " + sum);
+            System.out.println(n+"个元素总和为: " + sum);
         }
 
         scanner.close();
